@@ -8,41 +8,27 @@ namespace _03_InterestingFeatures
 {
 	class Program
 	{
-		private const string PROMPT = "Who many would you like me to count to: ";
-
 		static void Main(string[] args)
 		{
-			var prog = new Program();
-			while (true)
-			{
-				prog.Prompt();
-				System.Threading.Thread.Sleep(100);
-			}
-		}
 
-		public async Task Prompt()
-		{
-			Console.Write(PROMPT);
-			var limitString = Console.ReadLine();
-			int limit;
-			if (!Int32.TryParse(limitString, out limit))
+		NeverUseGotos:
+			Console.Write(@"Choices:
+	1. Async/Await
+	2. Coroutines
+Choose wisely: ");
+			var choice = Console.ReadLine();
+			switch (choice)
 			{
-				Console.WriteLine("Please enter a valid number");
-				return;
+				case "1":
+					AsyncAwait.Run();
+					break;
+				case "2":
+					Coroutine.Run();
+					break;
+				default:
+					Console.WriteLine("You have chosen poorly");
+					goto NeverUseGotos;
 			}
-
-			int result = await this.Count(limit);
-			Console.Write(string.Format("\n\nDONE: That took {0} seconds to count to {1}\n\n{2}", result, limit, PROMPT));
-		}
-
-		public async Task<int> Count(int limit)
-		{
-			DateTime start = DateTime.Now;
-			for (int i = 0; i <= limit; i++)
-			{
-				await Task.Delay(250);
-			}
-			return DateTime.Now.Subtract(start).Seconds;
 		}
 	}
 }
