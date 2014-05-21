@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="AsyncAwait.cs" />
     <Compile Include="Coroutine.cs" />
+    <Compile Include="Dynamics.cs" />
     <Compile Include="GenericsAndFunctional.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
