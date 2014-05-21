@@ -15,6 +15,7 @@ namespace _03_InterestingFeatures
 			Console.Write(@"Choices:
 	1. Async/Await
 	2. Coroutines
+	3. Generics and Functional
 Choose wisely: ");
 			var choice = Console.ReadLine();
 			switch (choice)
@@ -24,6 +25,9 @@ Choose wisely: ");
 					break;
 				case "2":
 					Coroutine.Run();
+					break;
+				case "3":
+					GenericsAndFunctional.Run();
 					break;
 				default:
 					Console.WriteLine("You have chosen poorly");
